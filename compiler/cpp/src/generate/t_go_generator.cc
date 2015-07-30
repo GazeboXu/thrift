@@ -60,7 +60,8 @@ static const string endl = "\n"; // avoid ostream << std::endl flushes
  */
 bool format_go_output(const string& file_path);
 
-const string default_thrift_import = "git.apache.org/thrift.git/lib/go/thrift";
+//const string default_thrift_import = "git.apache.org/thrift.git/lib/go/thrift";
+const string default_thrift_import = "github.com/gazeboxu/thrift/lib/go/thrift";
 static std::string package_flag;
 
 /**
@@ -424,11 +425,11 @@ bool t_go_generator::is_pointer_field(t_field* tfield, bool in_container_value) 
 std::string t_go_generator::camelcase(const std::string& value) const {
   std::string value2(value);
   std::setlocale(LC_ALL, "C"); // set locale to classic
-  
+
   // Fix common initialism in first word
   fix_common_initialism(value2, 0);
 
-  // as long as we are changing things, let's change _ followed by lowercase to 
+  // as long as we are changing things, let's change _ followed by lowercase to
   // capital and fix common initialisms
   for (std::string::size_type i = 1; i < value2.size() - 1; ++i) {
     if (value2[i] == '_') {

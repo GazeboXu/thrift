@@ -22,7 +22,7 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/gazeboxu/thrift/lib/go/thrift"
 	"tutorial"
 )
 
@@ -40,7 +40,7 @@ func runServer(transportFactory thrift.TTransportFactory, protocolFactory thrift
 	} else {
 		transport, err = thrift.NewTServerSocket(addr)
 	}
-	
+
 	if err != nil {
 		return err
 	}
